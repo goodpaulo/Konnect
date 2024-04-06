@@ -11,14 +11,21 @@ import {
   Outlet,
   RouterProvider,
 } from "react-router-dom";
+import "./style.scss"
+import { useContext } from 'react';
+import { DarkModeContext } from './context/darkModeContext';
 
 function App() {
 
   const currentUser = true;
 
+  const {darkMode} = useContext(DarkModeContext)
+
+  
+
   const Layout = ()=> {
     return(
-      <div>
+      <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <NavBar/>
         <div style={{display:'flex'}}>
           <LeftBar/>
